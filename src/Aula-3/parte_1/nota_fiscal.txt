@@ -1,0 +1,9 @@
+==============================
+         NOTA FISCAL           
+==============================
+Nome do comprador: Felipe
+Produto adquirido: Leite
+Quantidade: 10
+Preço unitário: R$ 5,00
+Valor total: R$ 50,00
+==============================
