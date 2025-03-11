@@ -5,7 +5,7 @@ public class ex_8 {
         Scanner scanner = new Scanner(System.in); // Cria o objeto Scanner para ler a entrada do usuário
         
         // Definição de variáveis
-        int ang;
+        float ang;
         
         // Entrada de dados
         System.out.print("Informe o valor: ");
