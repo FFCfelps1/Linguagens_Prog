@@ -58,6 +58,6 @@ javac NomeDoArquivo.java
 🙋‍♂️ Autor
 Feito por Felipe
 👨‍🎓 Estudante de Engenharia no IMT
-🚀 Focado em projetos de software, sistemas embarcados e espaço 🛰️
+
 🔗 github.com/FFCfelps1
 
