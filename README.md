@@ -56,7 +56,9 @@ javac NomeDoArquivo.java
 ```
 
 🙋‍♂️ Autor
+
 Feito por Felipe
+
 👨‍🎓 Estudante de Engenharia no IMT
 
 🔗 github.com/FFCfelps1
