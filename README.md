@@ -1,6 +1,6 @@
 # 🧑‍💻 Linguagens_Prog
 
-![Banner Java](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg)
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" alt="Banner Java" width="200"/>
 
 [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
 [![GitHub repo](https://img.shields.io/badge/GitHub-FFCfelps1%2FLinguagens_Prog-181717?style=for-the-badge&logo=github)](https://github.com/FFCfelps1/Linguagens_Prog)
