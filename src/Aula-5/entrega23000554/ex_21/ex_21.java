@@ -17,7 +17,7 @@ public class ex_21 {
         limite = scanner.nextInt();
 
         System.out.println("Tabela de conversão: ");
-        for (int i = 1; i < limite; i += 2){
+        for (int i = 0; i < limite; i ++){
             System.out.println(i);
         }
     }
