@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
-import java.io.IOException;
 
 public class CadastroAlunos extends JFrame {
     private JTextField txtRA, txtNome, txtSobrenome, txtP1, txtP2, txtP3, txtP4;
@@ -12,78 +11,41 @@ public class CadastroAlunos extends JFrame {
     public CadastroAlunos() {
         setTitle("Sistema de Cadastro de Alunos");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+        setLayout(new BorderLayout());
         
-        // Configuração do layout
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.anchor = GridBagConstraints.WEST;
+        // Painel principal
+        JPanel painelPrincipal = new JPanel();
+        painelPrincipal.setLayout(new BoxLayout(painelPrincipal, BoxLayout.Y_AXIS));
+        painelPrincipal.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         
         // Título
         JLabel lblTitulo = new JLabel("CADASTRO DE ALUNOS");
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 16));
-        gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.CENTER;
-        add(lblTitulo, gbc);
-        
-        // Reset gridwidth e anchor
-        gbc.gridwidth = 1;
-        gbc.anchor = GridBagConstraints.WEST;
+        lblTitulo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        painelPrincipal.add(lblTitulo);
+        painelPrincipal.add(Box.createVerticalStrut(20));
         
         // Campos de entrada
-        gbc.gridx = 0; gbc.gridy = 1;
-        add(new JLabel("RA:"), gbc);
-        gbc.gridx = 1;
-        txtRA = new JTextField(15);
-        add(txtRA, gbc);
+        painelPrincipal.add(criarCampo("RA:", txtRA = new JTextField(15)));
+        painelPrincipal.add(criarCampo("Nome:", txtNome = new JTextField(15)));
+        painelPrincipal.add(criarCampo("Sobrenome:", txtSobrenome = new JTextField(15)));
+        painelPrincipal.add(criarCampo("Nota P1:", txtP1 = new JTextField(15)));
+        painelPrincipal.add(criarCampo("Nota P2:", txtP2 = new JTextField(15)));
+        painelPrincipal.add(criarCampo("Nota P3:", txtP3 = new JTextField(15)));
+        painelPrincipal.add(criarCampo("Nota P4:", txtP4 = new JTextField(15)));
         
-        gbc.gridx = 0; gbc.gridy = 2;
-        add(new JLabel("Nome:"), gbc);
-        gbc.gridx = 1;
-        txtNome = new JTextField(15);
-        add(txtNome, gbc);
-        
-        gbc.gridx = 0; gbc.gridy = 3;
-        add(new JLabel("Sobrenome:"), gbc);
-        gbc.gridx = 1;
-        txtSobrenome = new JTextField(15);
-        add(txtSobrenome, gbc);
-        
-        gbc.gridx = 0; gbc.gridy = 4;
-        add(new JLabel("Nota P1:"), gbc);
-        gbc.gridx = 1;
-        txtP1 = new JTextField(15);
-        add(txtP1, gbc);
-        
-        gbc.gridx = 0; gbc.gridy = 5;
-        add(new JLabel("Nota P2:"), gbc);
-        gbc.gridx = 1;
-        txtP2 = new JTextField(15);
-        add(txtP2, gbc);
-        
-        gbc.gridx = 0; gbc.gridy = 6;
-        add(new JLabel("Nota P3:"), gbc);
-        gbc.gridx = 1;
-        txtP3 = new JTextField(15);
-        add(txtP3, gbc);
-        
-        gbc.gridx = 0; gbc.gridy = 7;
-        add(new JLabel("Nota P4:"), gbc);
-        gbc.gridx = 1;
-        txtP4 = new JTextField(15);
-        add(txtP4, gbc);
+        painelPrincipal.add(Box.createVerticalStrut(20));
         
         // Botões
-        JPanel panelBotoes = new JPanel();
+        JPanel panelBotoes = new JPanel(new FlowLayout());
         btnCadastrar = new JButton("Cadastrar");
         btnLimpar = new JButton("Limpar");
         
         panelBotoes.add(btnCadastrar);
         panelBotoes.add(btnLimpar);
+        painelPrincipal.add(panelBotoes);
         
-        gbc.gridx = 0; gbc.gridy = 8; gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.CENTER;
-        add(panelBotoes, gbc);
+        add(painelPrincipal, BorderLayout.CENTER);
         
         // Eventos dos botões
         btnCadastrar.addActionListener(new ActionListener() {
@@ -105,37 +67,44 @@ public class CadastroAlunos extends JFrame {
         setResizable(false);
     }
     
+    private JPanel criarCampo(String label, JTextField campo) {
+        JPanel painel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JLabel lbl = new JLabel(label);
+        lbl.setPreferredSize(new Dimension(100, 25));
+        painel.add(lbl);
+        painel.add(campo);
+        return painel;
+    }
+    
     private void cadastrarAluno() {
         try {
-            // Validação dos campos
-            if (txtRA.getText().trim().isEmpty() || txtNome.getText().trim().isEmpty() ||
-                txtSobrenome.getText().trim().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");
+            // Verificar se os campos estão preenchidos
+            if (txtRA.getText().isEmpty() || txtNome.getText().isEmpty() ||
+                txtSobrenome.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
                 return;
             }
             
-            // Validação das notas
-            double p1 = Double.parseDouble(txtP1.getText().trim());
-            double p2 = Double.parseDouble(txtP2.getText().trim());
-            double p3 = Double.parseDouble(txtP3.getText().trim());
-            double p4 = Double.parseDouble(txtP4.getText().trim());
+            // Pegar as notas
+            double p1 = Double.parseDouble(txtP1.getText());
+            double p2 = Double.parseDouble(txtP2.getText());
+            double p3 = Double.parseDouble(txtP3.getText());
+            double p4 = Double.parseDouble(txtP4.getText());
             
-            // Gravação no arquivo
+            // Salvar no arquivo
             FileWriter writer = new FileWriter("alunos.txt", true);
-            String linha = txtRA.getText().trim() + ";" + 
-                          txtNome.getText().trim() + ";" + 
-                          txtSobrenome.getText().trim() + ";" + 
+            String linha = txtRA.getText() + ";" + 
+                          txtNome.getText() + ";" + 
+                          txtSobrenome.getText() + ";" + 
                           p1 + ";" + p2 + ";" + p3 + ";" + p4 + "\n";
             writer.write(linha);
             writer.close();
             
-            JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(this, "Aluno cadastrado!");
             limparCampos();
             
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Erro: Digite valores numéricos válidos para as notas!");
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "Erro ao salvar no arquivo: " + ex.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage());
         }
     }
     
@@ -147,7 +116,6 @@ public class CadastroAlunos extends JFrame {
         txtP2.setText("");
         txtP3.setText("");
         txtP4.setText("");
-        txtRA.requestFocus();
     }
     
     public static void main(String[] args) {
