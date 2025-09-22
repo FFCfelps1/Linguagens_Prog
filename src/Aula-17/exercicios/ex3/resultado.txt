@@ -1,0 +1,71 @@
+--------------------------------------------------------------------------
+>>> Imprimindo mensagem original...
+
+Mensagem Clara (Hexadecimal):
+0000 - 4f 69 2c 20 61 6c 75 6e 6f 73 20 64 6f 20 49 4d  - Oi, alunos do IM
+0010 - 54 21                                            - T!
+
+Mensagem Clara (String):
+Oi, alunos do IMT!
+
+>>> Cifrando com o algoritmo Dummy...
+
+Mensagem Cifrada (Hexadecimal):
+0000 - d7 f2 b6 ab ed f9 03 fd ff 04 b2 f7 03 b5 df e4  - ................
+0010 - ec ba                                            - ..
+
+Mensagem Cifrada (String):
+×ò¶«íùýÿ²÷µßäìº
+
+>>> Decifrando com o algoritmo Dummy...
+
+Mensagem Decifrada (Hexadecimal):
+0000 - 4f 69 2c 20 61 6c 75 6e 6f 73 20 64 6f 20 49 4d  - Oi, alunos do IM
+0010 - 54 21                                            - T!
+
+Mensagem Decifrada (String):
+Oi, alunos do IMT!
+
+>>> Cifrando com o algoritmo AES...
+
+Mensagem Cifrada (Hexadecimal):
+0000 - 5b ff a2 50 b2 53 0c 49 d4 09 a5 e7 22 8a 22 41  - [..P.S.I...."."A
+0010 - 44 0b c5 d3 33 89 b2 e7 9f ab 7c f5 3d ee bc 08  - D...3.....|.=...
+
+Mensagem Cifrada (String):
+[ÿ¢P²SIÔ	¥ç""ADÅÓ3²ç«|õ=î¼
+
+>>> Decifrando com o algoritmo AES...
+
+Mensagem Decifrada (Hexadecimal):
+0000 - 4f 69 2c 20 61 6c 75 6e 6f 73 20 64 6f 20 49 4d  - Oi, alunos do IM
+0010 - 54 21                                            - T!
+
+Mensagem Decifrada (String):
+Oi, alunos do IMT!
+
+>>> Cifrando com o algoritmo RSA...
+
+Mensagem Cifrada (Hexadecimal):
+0000 - 6f 21 20 a7 40 7b 8c 7f 49 9b 5f 7b 3a 1f c9 98  - o! .@{..I._{:...
+0010 - 7f fa 7b 75 aa d9 48 a4 46 49 34 0f 5e 88 71 d2  - ..{u..H.FI4.^.q.
+0020 - a6 da c5 b5 07 2f 09 7d 88 f5 3e 25 bf 31 c5 e6  - ...../.}..>%.1..
+0030 - 97 10 a4 df e1 d4 9e 0f bc 21 3f f9 9e 46 7c 5c  - .........!?..F|\
+0040 - b7 3a e3 57 2b e0 b3 53 84 72 39 57 58 34 7d 6c  - .:.W+..S.r9WX4}l
+0050 - b6 8f 21 79 f3 6e d2 df a5 1f 33 cb af 94 e7 fb  - ..!y.n....3.....
+0060 - 44 92 8b ee 60 0a ad 4c 49 2a 43 fc 48 9f 52 06  - D...`..LI*C.H.R.
+0070 - fd 5a e7 8b 1a 58 10 f7 16 fe 3e 49 85 33 e8 05  - .Z...X....>I.3..
+
+Mensagem Cifrada (String):
+o! §@{I_{:Éú{uªÙH¤FI4^qÒ¦ÚÅµ/	}õ>%¿1Åæ¤ßáÔ¼!?ùF|\·:ãW+à³Sr9WX4}l¶!yónÒß¥3Ë¯çûDî`
+­LI*CüHRýZçX÷þ>I3è
+
+>>> Decifrando com o algoritmo RSA...
+
+Mensagem Decifrada (Hexadecimal):
+0000 - 4f 69 2c 20 61 6c 75 6e 6f 73 20 64 6f 20 49 4d  - Oi, alunos do IM
+0010 - 54 21                                            - T!
+
+Mensagem Decifrada (String):
+Oi, alunos do IMT!
+
