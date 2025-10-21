@@ -1253,10 +1253,3 @@ TERMINATED
 **Data:** 21 de Outubro de 2025  
 **Versão:** 1.0  
 **Tecnologias:** Java SE 8+, Concurrency API, Functional Programming
-
----
-
-**Nota:** Este documento pode ser convertido para PDF usando ferramentas como:
-- Pandoc: `pandoc Ex4.md -o Ex4.pdf`
-- Markdown to PDF (VS Code Extension)
-- Online: https://www.markdowntopdf.com/

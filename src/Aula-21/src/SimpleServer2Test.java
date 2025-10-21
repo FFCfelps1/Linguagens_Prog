@@ -60,8 +60,7 @@ public class SimpleServer2Test {
                 // Solicita confirmacao ou edicao
                 System.out.println("\nOpcoes:");
                 System.out.println("  [1] Confirmar e enviar a resposta padrao");
-                System.out.println("  [2] Editar a resposta antes de enviar");
-                System.out.println("  [3] Enviar resposta personalizada");
+                System.out.println("  [2] Enviar resposta personalizada");
                 System.out.print("\nEscolha uma opcao (1/2/3): ");
                 
                 String opcao = scanner.nextLine().trim();
@@ -73,21 +72,8 @@ public class SimpleServer2Test {
                         respostaFinal = respostaPadrao;
                         System.out.println("\n[OK] Resposta padrao confirmada.");
                         break;
-                        
+
                     case "2":
-                        // Edita a resposta padrao
-                        System.out.print("\nEdite a resposta (atual: \"" + respostaPadrao + "\"): ");
-                        String edicao = scanner.nextLine().trim();
-                        if (edicao.isEmpty()) {
-                            respostaFinal = respostaPadrao;
-                            System.out.println("[AVISO] Edicao vazia. Usando resposta padrao.");
-                        } else {
-                            respostaFinal = edicao;
-                            System.out.println("[OK] Resposta editada com sucesso.");
-                        }
-                        break;
-                        
-                    case "3":
                         // Cria resposta completamente personalizada
                         System.out.print("\nDigite a resposta personalizada: ");
                         String personalizada = scanner.nextLine().trim();
